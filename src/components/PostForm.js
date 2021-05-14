@@ -54,6 +54,7 @@ function PostForm() {
   
     function createPostCallback() {
       createPost();
+      setIsOpen(false);
     }
     return (
         <div>
@@ -61,14 +62,16 @@ function PostForm() {
       <Form onSubmit={onSubmit}>
         <h2>Create a post:</h2>
         <Form.Field>
-          <Form.Input
-            placeholder="Hi World!"
+        
+            <Form.Field label='Create a post' control='textarea' rows='3'  
             name="body"
             onChange={onChange}
             value={values.body}
-            error={error ? true : false}
-          />
-          
+            error={error ? true : false}/>
+            
+            
+            
+         
         {/* <Picker set='apple' /> */}
 
 {/* <Picker onSelect={addEmoji} /> */}
@@ -76,14 +79,22 @@ function PostForm() {
 {/* <Picker style={{ position: 'absolute', bottom: '0px', right: '0px' }} /> */}
 {/* <Picker i18n={{ search: 'Recherche', categories: { search: 'Résultats de recherche', recent: 'Récents' } }} />  */}
         {/* {console.log(isOpen)} */}
-         {isOpen  && <Picker onSelect={addEmoji}  emoji='point_up' />}
          {/* {isOpen  && <Picker onEmojiClick={onEmojiClick} />}  */}
+        
+        </Form.Field>
+        <div   style={{ display: 'flex',marginBottom:"1rem" }}  >
           <Button type="submit" color="teal">
             Submit
           </Button>
-        </Form.Field>
+          <span onClick={()=>setIsOpen(!isOpen)}  style={{ backgroundColor:'#00b5ad',color:'white',padding:'0.5rem',cursor:'pointer',borderRadius:'5%' }}> {isOpen?  "Hide panel" : "Show me emojis"  } </span>
+          </div>
+          { isOpen  
+               &&  <Picker onSelect={addEmoji}  emoji='point_up' style={{ position: 'static'}}  />
+          }
+     
+        {/* {isOpen  && <Picker onSelect={addEmoji}  emoji='point_up' style={{ position: 'absolute', bottom: '0px', right: '0px' }} />} */}
       </Form>
-      <Button onClick={()=>setIsOpen(!isOpen)}> {isOpen?  "Hide panel" : "Show me emojis"  } </Button>
+     
       {error && (
         <div className="ui error message" style={{ marginBottom: 20 }}>
           <ul className="list">

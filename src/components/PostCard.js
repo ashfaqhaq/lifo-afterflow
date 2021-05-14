@@ -20,13 +20,14 @@ function PostCard({
         <Image
           floated="right"
           size="mini"
-          src="https://react.semantic-ui.com/images/avatar/large/molly.png"
+          src={`https://avatars.dicebear.com/v2/avataaars/${username}.svg?options%5bmood%5d%5b%5d=happy`}
         />
+     
         <Card.Header>{username}</Card.Header>
         <Card.Meta as={Link} to={`/posts/${id}`}>
           {moment(createdAt).fromNow(true)}
         </Card.Meta>
-        <Card.Description>{body}</Card.Description>
+        <Card.Description style={{wordBreak: "break-word"}}>{body}</Card.Description>
       </Card.Content>
       <Card.Content extra>
       <LikeButton user={user} post={{ id, likes, likeCount }} />

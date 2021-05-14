@@ -58,6 +58,14 @@ function Login(props) {
           Login
         </Button>
       </Form>
+      
+
+      <h3> Test credentials </h3>
+       <code> username : test </code> <br></br>
+       <code>   password: 123456  </code>
+         
+
+      
       {Object.keys(errors).length > 0 && (
         <div className="ui error message">
           <ul className="list">
