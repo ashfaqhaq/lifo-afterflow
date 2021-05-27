@@ -60,7 +60,7 @@ function PostForm() {
         <div>
        <>
       <Form onSubmit={onSubmit}>
-        <h2>Create a post:</h2>
+        <h3>Celebrate your achievements either big or small or you may choose to simply rant!!</h3>
         <Form.Field>
         
             <Form.Field label='Create a post' control='textarea' rows='3'  
